@@ -1,0 +1,36 @@
+//Palindrome check
+#include"stack.c"
+main()
+{
+	char str[20];
+	int i,flag;
+	STK s;
+	init(&s);
+	printf("Enter the string");
+	scanf("%s",str);
+	for(i=0;str[i]!='\0';i++)
+	{
+	if(isFull(&s))
+	{
+		printf("stack is full");
+		exit(1);
+	}
+	push(&s,str[i]);
+	}
+	flag=0;
+	for(i=0;str[i]!='\0';i++)
+	{
+		if(isEmpty(&s))
+		{
+			printf("Stack is empty");
+			exit(1);
+		}
+		if(str[i]!=pop(&s))
+		flag=1;
+	}
+	if(flag)
+		printf("Not Palindrome");
+	else
+		printf("Palindrome");
+	return(0);
+}

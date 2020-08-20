@@ -1,0 +1,32 @@
+/* program : reverse number and check whether number is palindrome or not.*/
+
+#include <stdio.h>
+#include <conio.h>
+
+void main()
+{
+	//variables
+	int cntr,temp,number,number1,power=1,number2=1,sum=0;
+	clrscr();
+
+	printf("Enter number : ");
+	scanf("%d",&number);
+	temp=number;
+	//reverse number
+	while(number>0)
+	{
+		number/=10;
+		if(number>0) power++;
+	}
+
+	number=temp;
+	number1=number%10;
+	while(number>0)
+	{
+		number=number/10;
+		number2=number1*10+sum;
+		sum=number%10;
+	}
+	printf("%d ",number2);
+	getch();
+}
